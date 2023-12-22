@@ -7,36 +7,31 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.dairy.dto.feedcompany.FeedcompanyRequestDto;
-import com.dairy.dto.feedcompany.FeedcompanyResponseDto;
-import com.dairy.entity.Feedcompany;
+import com.dairy.dto.feedcompany.FeedCompanyRequestDto;
+import com.dairy.dto.feedcompany.FeedCompanyResponseDto;
+import com.dairy.entity.FeedCompany;
 
-import com.dairy.mapper.feedcompany.FeedcompanyMapper;
+import com.dairy.mapper.feedcompany.FeedCompanyMapper;
 import com.dairy.repository.FeedcompanyRepository;
-import com.dairy.service.FeedcompanyService;
+import com.dairy.service.FeedCompanyService;
 import lombok.extern.slf4j.Slf4j;
 
 @Service
 @Transactional
 @Slf4j
-public class FeedcompanyServiceImpl implements FeedcompanyService {
+public class FeedcompanyServiceImpl implements FeedCompanyService {
 
 	@Autowired
-	private FeedcompanyRepository feedcomponyRepository;
+	private FeedcompanyRepository feedComponyRepository;
 
 	@Autowired
-	private FeedcompanyMapper feedcompanyMapper;
-
-	@Autowired
-	private Feedcompany feedcompany;
-	
-	                          // ADD FINDCOMPANY 
+	private FeedCompanyMapper feedCompanyMapper;
 	
 	@Override
-	public boolean addfeedcompany(FeedcompanyRequestDto dto) {
+	public boolean addFeedCompany(FeedCompanyRequestDto dto) {
 		try {
-			Feedcompany feedcompany = feedcompanyMapper.toEntity(dto);
-			feedcomponyRepository.save(feedcompany);
+			FeedCompany feedCompany = feedCompanyMapper.toEntity(dto);
+			feedComponyRepository.save(feedCompany);
 			return true;
 
 		} catch (Exception e) {
@@ -44,25 +39,22 @@ public class FeedcompanyServiceImpl implements FeedcompanyService {
 		}
 		return false;
 
-	}
-                                       // FINDCOMPANY BY ID                                     
+	}                                 
 	@Override
-	public FeedcompanyResponseDto findById(Long id) {
+	public FeedCompanyResponseDto findById(Long id) {
 
-		Optional<Feedcompany> opt = feedcomponyRepository.findById(id);
+		Optional<FeedCompany> opt = feedComponyRepository.findById(id);
 		if (opt.isPresent()) {
-			Feedcompany feedcompany = opt.get();
-			return feedcompanyMapper.toFeedompanyResponce(feedcompany);
+			FeedCompany feedCompany = opt.get();
+			return feedCompanyMapper.toFeedCompanyResponce(feedCompany);
 		}
-
 		return null;
 	}
-	                              // FINDALL FEEDCOMPANIES
 
 	@Override
-	public List<FeedcompanyResponseDto> findAll() {
-		List<Feedcompany> feedcompany = (List<Feedcompany>) feedcomponyRepository.findAll();
-		return feedcompanyMapper.toList(feedcompany);
+	public List<FeedCompanyResponseDto> findAll() {
+		List<FeedCompany> feedcompany =  feedComponyRepository.findAll();
+		return feedCompanyMapper.toList(feedcompany);
 	}
 
 }

@@ -14,25 +14,22 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.dairy.constants.MessageConstants;
 import com.dairy.dto.branch.BranchResponseDto;
-import com.dairy.dto.feedcompany.FeedcompanyRequestDto;
-import com.dairy.dto.feedcompany.FeedcompanyResponseDto;
-import com.dairy.service.FeedcompanyService;
+import com.dairy.dto.feedcompany.FeedCompanyRequestDto;
+import com.dairy.dto.feedcompany.FeedCompanyResponseDto;
+import com.dairy.service.FeedCompanyService;
 
 
 
 @RestController
 @RequestMapping("/feedcompany")
-public class FeedcompanyController {
+public class FeedCompanyController {
 
 	@Autowired
-	private FeedcompanyService feedcompanyService;
-	
-	
-	
+	private FeedCompanyService feedCompanyService;
 	
 	@PostMapping
-	public ResponseEntity<String> addfeedcompany(@RequestBody FeedcompanyRequestDto dto) {
-		boolean isAdded =feedcompanyService.addfeedcompany(dto);
+	public ResponseEntity<String> addFeedCompany(@RequestBody FeedCompanyRequestDto dto) {
+		boolean isAdded =feedCompanyService.addFeedCompany(dto);
 	
 		if ( isAdded )
 			return ResponseEntity.status( HttpStatus.CREATED ).body( MessageConstants.ADD_FEEDCOMPANY_SUCCESS_MESSAGE );
@@ -42,14 +39,14 @@ public class FeedcompanyController {
 	}
 	
 	@GetMapping("/id/{id}")
-	public ResponseEntity<FeedcompanyResponseDto> findById(@PathVariable Long id) {
-		FeedcompanyResponseDto responseDto = feedcompanyService.findById(id);
+	public ResponseEntity<FeedCompanyResponseDto> findById(@PathVariable Long id) {
+		FeedCompanyResponseDto responseDto = feedCompanyService.findById(id);
 		return ResponseEntity.status( HttpStatus.OK ).body(responseDto);
 	}
 	
 	@GetMapping("/findAll")
-	public ResponseEntity<List<FeedcompanyResponseDto>> findAll() {
-		return new ResponseEntity<>( feedcompanyService.findAll(), HttpStatus.OK );
+	public ResponseEntity<List<FeedCompanyResponseDto>> findAll() {
+		return new ResponseEntity<>( feedCompanyService.findAll(), HttpStatus.OK );
 	}
 
 	}

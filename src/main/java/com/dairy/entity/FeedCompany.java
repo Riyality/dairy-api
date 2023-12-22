@@ -17,7 +17,7 @@ import lombok.Setter;
 @Setter
  @Entity
 @Table( name="feed_company")
-public class Feedcompany {
+public class FeedCompany {
 
 	
 	@Id
