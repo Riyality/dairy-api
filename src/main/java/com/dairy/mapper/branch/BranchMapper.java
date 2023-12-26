@@ -45,7 +45,7 @@ public class BranchMapper {
 	}
 
 	public List<BranchResponseDto> toList( List<Branch> list ) {
-		List<BranchResponseDto> dtos = new ArrayList<>();
+		List<BranchResponseDto> dtos = new ArrayList<BranchResponseDto>();
 		for ( Branch entity : list ) {
 			dtos.add( toBranchResponseDto( entity ) );
 		}
