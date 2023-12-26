@@ -7,9 +7,9 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class FeedtypeResponseDto {
+public class FeedTypeResponseDto {
 
-	private Long id ;
+	private Long id;
 	private String type;
 	private Long feedcompanyId;
 }

@@ -26,7 +26,7 @@ public class FeedcompanyServiceImpl implements FeedCompanyService {
 
 	@Autowired
 	private FeedCompanyMapper feedCompanyMapper;
-	
+
 	@Override
 	public boolean addFeedCompany(FeedCompanyRequestDto dto) {
 		try {
@@ -39,7 +39,8 @@ public class FeedcompanyServiceImpl implements FeedCompanyService {
 		}
 		return false;
 
-	}                                 
+	}
+
 	@Override
 	public FeedCompanyResponseDto findById(Long id) {
 
@@ -53,7 +54,7 @@ public class FeedcompanyServiceImpl implements FeedCompanyService {
 
 	@Override
 	public List<FeedCompanyResponseDto> findAll() {
-		List<FeedCompany> feedcompany =  feedComponyRepository.findAll();
+		List<FeedCompany> feedcompany = feedComponyRepository.findAll();
 		return feedCompanyMapper.toList(feedcompany);
 	}
 

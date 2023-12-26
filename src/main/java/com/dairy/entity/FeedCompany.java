@@ -15,23 +15,14 @@ import lombok.Setter;
 @Component
 @Getter
 @Setter
- @Entity
-@Table( name="feed_company")
+@Entity
+@Table(name = "feed_company")
 public class FeedCompany {
 
-	
 	@Id
-	@GeneratedValue( strategy = GenerationType.AUTO )
-	@Column( name = "id" )
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "id")
 	private Long id;
 	private String name;
-	
-	
-	
+
 }
-
-
-
-
-
-

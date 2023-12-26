@@ -6,7 +6,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-
 @Setter
 @Getter
 @Data
@@ -14,6 +13,6 @@ import lombok.Setter;
 @AllArgsConstructor
 public class FeedTypeRequestDto {
 	private Long id;
-    private String type;
-    private Long feedCompanyId;  
+	private String type;
+	private Long feedCompanyId;
 }
