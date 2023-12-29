@@ -8,5 +8,5 @@ import com.dairy.entity.Employee;
 @Repository
 public interface EmployeeRepository extends JpaRepository<Employee, Long> {
 
-	Employee findByContact( String username );
+	Employee findByContact(String username);
 }

@@ -17,4 +17,14 @@ public class EmployeeResponseDto {
 	private LocalDateTime dateOfJoining;
 	private int branchId;
 	private String branchName;
+	private long bankId;
+
+	private String bankName;
+	private String ifscCode;
+	private String bankBranchName;
+	private String accountNumber;
+	private String upiId;
+
+
+
 }

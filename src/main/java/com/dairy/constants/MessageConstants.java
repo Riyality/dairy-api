@@ -18,5 +18,10 @@ public class MessageConstants {
 	public static final String ADD_EQIPMENT_ERROR_MSG = "unable to Add equipments";
 	public static final String UPDATE_EQIPMENT_SUCCESS_MESSAGE = "Equipment updated successfully";
 	public static final String UPDATE_EQIPMENT_ERROR_MSG = "Unable to update Equipment";
+	
+	public static final String ADD_EMPLOYEE_SUCCESS_MESSAGE = "Add Employee  Detail Successfully";
+	public static final String ADD_EMPLOYEE_ERROR_MSG = "Unable to add Employee details";
+	public static final String UPDATE_EMPLOYEE_SUCCESS_MESSAGE = "Employee update Successfully";
+	public static final String UPDATE_EMPLOYEE_ERROR_MSG = "Unable To Update Employee";
 
 }
