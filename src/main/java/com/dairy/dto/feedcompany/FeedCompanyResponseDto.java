@@ -5,7 +5,7 @@ import lombok.Setter;
 
 @Setter
 @Getter
-public class FeedcompanyResponseDto {
+public class FeedCompanyResponseDto {
 	private Long id;
 	private String name;
 
