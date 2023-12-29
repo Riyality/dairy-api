@@ -17,6 +17,6 @@ public class BranchRequestDto {
 	private String address;
 	private String owner;
 	private String ownerContact;
-	@DateTimeFormat( pattern = "yyyy-MM-dd'T'HH:mm" )
+	@DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
 	private LocalDateTime startDate;
 }
