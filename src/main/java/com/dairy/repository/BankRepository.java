@@ -3,10 +3,9 @@ package com.dairy.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.dairy.entity.Employee;
+import com.dairy.entity.Bank;
 
 @Repository
-public interface EmployeeRepository extends JpaRepository<Employee, Long> {
+public interface BankRepository extends JpaRepository<Bank, Long> {
 
-	Employee findByContact(String username);
 }

@@ -90,6 +90,89 @@ CREATE TABLE `employee` (
   PRIMARY KEY (`id`));
 
 
+CREATE TABLE `dairy`.`farmers` (
+  `id` BIGINT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(45) NULL,
+  `date_of_registration` TIMESTAMP NULL,
+  `contact` VARCHAR(45) NULL,
+  `route` VARCHAR(45) NULL,
+  `address` VARCHAR(45) NULL,
+   bank BIGINT NULL,
+   FOREIGN KEY (bank) REFERENCES bank_details(id),
+  PRIMARY KEY (`id`));
 
   
+  CREATE TABLE `dairy`.`farmer_animal_mapping` (
+  `id` BIGINT NOT NULL AUTO_INCREMENT,
+  `type` VARCHAR(45) NULL,
+  `count` INT NULL,
+  `status` VARCHAR(45) NULL,
+  `farmer` BIGINT,
+   FOREIGN KEY (farmer) REFERENCES farmers(id),
+  PRIMARY KEY (`id`));
+
+  
+  CREATE TABLE `dairy`.`milk_collection` (
+  `id` BIGINT NOT NULL AUTO_INCREMENT,
+  `date_of_collection` TIMESTAMP NULL,
+  `shift` VARCHAR(45) NULL,
+  `type` VARCHAR(45) NULL,
+  `quantity` FLOAT NULL,
+  `fat` FLOAT NULL,
+  `snf` FLOAT NULL,
+  `rate` FLOAT NULL,
+  `total_amount` FLOAT NULL,
+  `farmer` BIGINT,
+   FOREIGN KEY (farmer) REFERENCES farmers(id),
+  PRIMARY KEY (`id`));
+  
+  CREATE TABLE `dairy`.`milk_rate` (
+  `id` BIGINT NOT NULL AUTO_INCREMENT,
+  `type` VARCHAR(45) NULL,
+  `date_of_rate` TIMESTAMP NULL,
+  `fat` FLOAT ZEROFILL NULL,
+  `snf` FLOAT NULL,
+  `rate` FLOAT NULL,
+  PRIMARY KEY (`id`));
+
+  
+  CREATE TABLE `dairy`.`advance_to_farmer` (
+  `id` BIGINT NOT NULL AUTO_INCREMENT,
+  `date_of_advance` TIMESTAMP NULL,
+  `amount` FLOAT NULL,
+  `deduction` FLOAT NULL,
+  `remaining_amount` FLOAT NULL,
+  `farmer` BIGINT,
+   FOREIGN KEY (farmer) REFERENCES farmers(id),
+  PRIMARY KEY (`id`));
+
+  
+  CREATE TABLE `dairy`.`payment_of_farmer` (
+  `id` BIGINT NOT NULL AUTO_INCREMENT,
+  `invoice_date` TIMESTAMP NULL,
+  `from_date` TIMESTAMP NULL,
+  `to_date` TIMESTAMP NULL,
+  `amount` FLOAT NULL,
+  `latest_payment_date` TIMESTAMP NULL,
+  `farmer` BIGINT,
+   FOREIGN KEY (farmer) REFERENCES farmers(id),
+  PRIMARY KEY (`id`));
+  
+  CREATE TABLE `dairy`.`feed_to_farmer` (
+  `id` BIGINT NOT NULL AUTO_INCREMENT,
+  `date_of_purchase` TIMESTAMP NULL,
+  `quantity` INT NULL,
+  `feed_rate` FLOAT NULL,
+  `total_amount` FLOAT NULL,
+  `payment_status` VARCHAR(45) NULL,
+  `remark` VARCHAR(45) NULL,
+    `farmer` BIGINT,
+   FOREIGN KEY (farmer) REFERENCES farmers(id),
+     `feed_company` BIGINT,
+   FOREIGN KEY (farmer) REFERENCES feed_company(id),
+     `feed_type` BIGINT,
+   FOREIGN KEY (farmer) REFERENCES feed_types(id),
+  PRIMARY KEY (`id`));
+
+
   
