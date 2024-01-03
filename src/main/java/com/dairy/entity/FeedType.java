@@ -30,6 +30,6 @@ public class FeedType {
 
 	@ManyToOne
 	@JoinColumn(name = "feed_company")
-	private FeedCompany feedcompany;
+	private FeedCompany feedCompany;
 
 }
