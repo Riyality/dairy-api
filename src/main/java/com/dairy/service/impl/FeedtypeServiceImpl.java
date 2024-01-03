@@ -40,7 +40,7 @@ public class FeedtypeServiceImpl implements FeedTypeService {
 			FeedType feedType = feedTypeMapper.toEntity(dto);
 			Optional<FeedCompany> companyOpt = feedCompanyRepository.findById(dto.getFeedCompanyId());
 			if (companyOpt.isPresent())
-				feedType.setFeedcompany(companyOpt.get());
+				feedType.setFeedCompany(companyOpt.get());
 			feedTypeRepository.save(feedType);
 			return true;
 		} catch (Exception e) {

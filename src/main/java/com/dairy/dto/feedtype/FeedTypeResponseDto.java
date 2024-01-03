@@ -11,5 +11,5 @@ public class FeedTypeResponseDto {
 
 	private Long id;
 	private String type;
-	private Long feedcompanyId;
+	private Long feedCompanyId;
 }
